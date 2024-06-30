@@ -1,0 +1,60 @@
+[versions]
+agp = "8.2.2"
+kotlin = "2.0.0"
+androidx-core-ktx = "1.13.1"
+androidx-appcompat = "1.7.0"
+androidx-constraintlayout = "2.1.4"
+androidx-activity = "1.9.0"
+androidx-swiperefreshlayout-swiperefreshlayout="1.0.0"
+android-material = "1.12.0"
+dev-icerock-mvvm-core = "0.16.1"
+dev-icerock-mvvm-flow = "0.16.1"
+dev-icerock-mvvm-livedata = "0.16.1"
+com-squareup-picasso = "2.71828"
+com-jakewharton-threetenabp="1.3.0"
+io-ktor = "2.3.8"
+io-koin = "3.2.0"
+io-reactivex-rxjava2-android="2.1.1"
+io-reactivex-rxjava2-rxjava="2.2.10"
+org-jetbrains-kotlinx-serialization-json="1.6.3"
+org-jetbrains-kotlinx-serialization-json-plugin="1.9.0"
+org-jetbrains-kotlinx-datetime="0.5.0"
+com-google-android-gms-play-services-location="21.3.0"
+com-google-code-gson="2.10.1"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
+androidx-swiperefreshlayout-swiperefreshlayout  = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swiperefreshlayout-swiperefreshlayout" }
+com-squareup-picasso = { module = "com.squareup.picasso:picasso", version.ref = "com-squareup-picasso"}
+dev-icerock-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "dev-icerock-mvvm-core" }
+dev-icerock-mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "dev-icerock-mvvm-flow" }
+dev-icerock-mvvm-livedata = { module = "dev.icerock.moko:mvvm-livedata", version.ref = "dev-icerock-mvvm-livedata" }
+com-jakewharton-threetenabp = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "com-jakewharton-threetenabp"}
+io-ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "io-ktor"}
+io-ktor-json = { module = "io.ktor:ktor-client-json", version.ref = "io-ktor"}
+io-ktor-cio = { module = "io.ktor:ktor-client-cio", version.ref = "io-ktor"}
+io-ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "io-ktor"}
+io-ktor-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "io-ktor"}
+
+io-koin-core = { module = "io.insert-koin:koin-core", version.ref = "io-koin"}
+io-koin-android = { module = "io.insert-koin:koin-android", version.ref = "io-koin"}
+
+io-reactivex-rxjava2-android = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "io-reactivex-rxjava2-android"}
+io-reactivex-rxjava2-rxjava = { module = "io.reactivex.rxjava2:rxjava", version.ref = "io-reactivex-rxjava2-rxjava"}
+org-jetbrains-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref="org-jetbrains-kotlinx-serialization-json"}
+org-jetbrains-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "org-jetbrains-kotlinx-datetime"}
+
+com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "com-google-code-gson"}
+com-google-android-gms-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "com-google-android-gms-play-services-location"}
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "org-jetbrains-kotlinx-serialization-json-plugin"}

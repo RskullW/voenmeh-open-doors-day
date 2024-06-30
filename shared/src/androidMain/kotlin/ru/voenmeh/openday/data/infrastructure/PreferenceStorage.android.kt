@@ -2,6 +2,7 @@ package ru.voenmeh.openday.data.infrastructure
 
 import android.content.Context
 import android.content.SharedPreferences
+import ru.voenmeh.openday.domain.utils.NativeHost
 
 actual class PreferenceStorage(val context: Context) {
     private val sharedPreferences: SharedPreferences
@@ -27,6 +28,6 @@ actual class PreferenceStorage(val context: Context) {
     }
 
     companion object {
-        val prefsName: String = "BIZON_PIZZA"
+        val prefsName: String = NativeHost.getPrefsName()
     }
 }

@@ -1,7 +1,8 @@
-package ru.voenmeh.openday.android
+package ru.voenmeh.openday.android.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.voenmeh.openday.android.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

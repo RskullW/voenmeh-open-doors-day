@@ -412,8 +412,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 iosApp/Pods/*
-iosApp/BizonPizzaKMP/Resources/Configs/SecureKeys.plist
-
 #temp
 iosApp/Podfile
 iosApp/Podfile.lock

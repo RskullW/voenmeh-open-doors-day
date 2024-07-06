@@ -4,14 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.ImageView
-import androidx.core.content.res.ResourcesCompat
 import ru.voenmeh.openday.android.R
+import ru.voenmeh.openday.android.dialog.showDialogError
 import ru.voenmeh.openday.domain.enums.Faculty
 import ru.voenmeh.openday.domain.model.Achievement
 
 class AchievementCard(private val achievement: Achievement, context: Context): FrameLayout(context) {
     init {
-        LayoutInflater.from(context).inflate(R.layout.linear_card, this, false)
+        LayoutInflater.from(context).inflate(R.layout.frame_card, this, true)
 
         initializeImage()
     }
@@ -91,6 +91,6 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
         }
 
-        imageView.setImageDrawable(ResourcesCompat.getDrawable(context.resources, resource, null))
+        imageView.setImageResource(resource)
     }
 }

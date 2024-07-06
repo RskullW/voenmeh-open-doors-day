@@ -7,9 +7,13 @@
     <color name="red">#F64545</color>
     <color name="gray">#BABABA</color>
 
-    <color name="primaryColor">#507BEA</color>
-    <color name="secondaryColor">#1B1C1C</color>
-    <color name="thirdlyColor">#777777</color>
+    <color name="primaryColor">#004C97</color>
+    <color name="primaryColor_clicked">#003C78</color>
+
+    <color name="secondaryColor">#10315B</color>
+    <color name="secondaryColor_clicked">#0C2340</color>
+
+    <color name="thirdlyColor">#C8C8C8</color>
     <color name="line">#80FFFFFF</color>
     <color name="errorColor">#EB4C4C</color>
 </resources>

@@ -1,10 +1,13 @@
 package ru.voenmeh.openday.android.dialog
 
+import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
 import ru.voenmeh.openday.android.R
+import ru.voenmeh.openday.domain.constants.Constants
 
 class DialogError(context: Context, onClose: () -> Unit = {}): LinearLayout(context) {
     init {
@@ -37,4 +40,20 @@ class DialogError(context: Context, onClose: () -> Unit = {}): LinearLayout(cont
         textView.text = text
 
     }
+}
+
+fun showDialogError(activity: Activity, title: String = Constants.Strings.titleError, description: String, close: String = Constants.Strings.Common.close, onAction: () -> Unit = {}) {
+        val dialog = Dialog(activity, R.style.BottomSheetDialogTransparent)
+
+        val dialogError = DialogError(activity) {
+            dialog.dismiss()
+            onAction()
+        }
+
+        dialogError.updateTitle(text = title)
+        dialogError.updateDescription(text = description)
+        dialogError.updateTextButton(text = close)
+
+        dialog.setContentView(dialogError)
+        dialog.show()
 }

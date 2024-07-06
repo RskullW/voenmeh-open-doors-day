@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Военмех. День Открытый Дверей</string>
-    <string name="menu_title">БГТУ «ВОЕНМЕХ»\nИМ Д. Ф. УСТИНОВА</string>
+    <string name="menu_title">БГТУ «ВОЕНМЕХ»\nим Д. Ф. Устинова</string>
     <string name="achievement">Достижения</string>
     <string name="quest">Задание</string>
     <string name="quest_description">Ваша задача, найти в каждой аудитории факультета QR-код, отсканировав его с помощью приложения и решить небольшое задание. При успешном прохождении вы получаете жетоны, которые отображаются выше. Также, нажав на жетон вы можете узнать небольшую информацию о факультете. Удачи в поисках!</string>
+    <string name="learnMore">Изучить подробнее</string>
 </resources>

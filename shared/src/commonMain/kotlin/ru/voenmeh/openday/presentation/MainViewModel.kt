@@ -40,7 +40,9 @@ class MainViewModel(val configParams: ConfigParams): ViewModel() {
             achievements.add(achievement)
         }
 
-        this.achievements.update(value = achievements)
+        withContextMain {
+            this@MainViewModel.achievements.update(value = achievements)
+        }
     }
 
     private suspend fun getAchievement(value: Int): Achievement? {
@@ -58,10 +60,10 @@ class MainViewModel(val configParams: ConfigParams): ViewModel() {
             when (faculty) {
                 Faculty.E -> {
                     title = Constants.Strings.facultyE
-                    description = Constants.Strings.descriptionI
-                    urlImage = Constants.Strings.urlImageI
-                    specializations = Constants.Strings.specializationI
-                    link = Constants.Strings.linkI
+                    description = Constants.Strings.descriptionE
+                    urlImage = Constants.Strings.urlImageE
+                    specializations = Constants.Strings.specializationE
+                    link = Constants.Strings.linkE
                 }
 
                 Faculty.I -> {

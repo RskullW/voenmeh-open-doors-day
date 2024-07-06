@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogFaculty_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_white_dialog"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/dialogFaculty_imageView_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/image_selector"
+            app:srcCompat="@drawable/ic_close" />
+
+        <TextView
+            android:id="@+id/dialogFaculty_textView_title"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingMultiplier="1.1"
+            android:textAllCaps="true"
+            android:text="факультет 'A' "
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/primaryColor"
+            android:textSize="@dimen/size_32sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dialogFaculty_textView_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:alpha="0.5"
+                    android:lineSpacingMultiplier="1.1"
+                    android:text="Факультет «А» Ракетно-космической техники (ранее авиа- и ракетостроения), один из старейших в стране, существует 70 лет. За это время подготовлено более 15 тысяч высококвалифицированных специалистов в области ракетной техники. "
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"
+                    android:textSize="@dimen/size_16sp" />
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/dialogFaculty_shapeableImageView"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/placeholder_image"
+            app:shapeAppearanceOverlay="@style/RoundedCornersImageView"
+            />
+
+        <TextView
+            android:id="@+id/dialogFaculty_textView_departmentTitle"
+            android:layout_gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Кафедры"
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/primaryColor"
+            android:textSize="@dimen/size_24sp" />
+
+        <ScrollView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dialogFaculty_textView_department"                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:alpha="0.5"
+                    android:lineSpacingMultiplier="1.1"
+                    android:text="Кафедра А1 «Ракетостроение»\nКафедра А2 «Технология конструкционных материалов и производства ракетно-космической техники»\nКафедра А3 «Космические аппараты и двигатели»\nКафедра А4 «Стартовые и технические комплексы ракет и космических аппаратов»\nКафедра А5 «Динамика и управление полетом летательных аппаратов»\nКафедра А8 «Двигатели и энергоустановки летательных аппаратов»\nКафедра А9 «Плазмогазодинамика и теплотехника»\n"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16sp" />
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/dialogFaculty_button_continue"
+            style="?android:attr/borderlessButtonStyle"
+            app:backgroundTint="@null"
+            android:button="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/learnMore"
+            android:textAllCaps="false"
+            android:textColor="@drawable/button_text_color_selector"
+            android:background="@drawable/button_selector"
+            android:textSize="@dimen/size_18sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_gravity="bottom"
+            />
+    </LinearLayout>
+</LinearLayout>

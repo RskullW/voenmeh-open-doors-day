@@ -5,7 +5,9 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.text.Editable
 import android.text.InputType
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -56,7 +58,7 @@ class DialogQuest(private val activity: Activity, quest: Quest, onClose: () -> U
         hintText.text = quest.hint
 
         hintView.setOnClickListener {
-            hintText.visibility = if (hintText.visibility == View.GONE) View.VISIBLE else View.GONE
+            setHintVisibility(if (hintText.visibility == View.GONE) View.VISIBLE else View.GONE)
         }
     }
 
@@ -81,6 +83,19 @@ class DialogQuest(private val activity: Activity, quest: Quest, onClose: () -> U
                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
             }
         }
+
+        textInputEditText.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                updateErrorText(null)
+            }
+
+        })
     }
 
     private fun initializeButtons(onClose: () -> Unit) {
@@ -110,6 +125,12 @@ class DialogQuest(private val activity: Activity, quest: Quest, onClose: () -> U
         val close = findViewById<ImageView>(R.id.dialogQuest_imageView_close)
 
         close.callOnClick()
+    }
+
+    public fun setHintVisibility(view: Int) {
+        val hintText = findViewById<TextView>(R.id.dialogQuest_textView_hintMessage)
+
+        hintText.visibility = view
     }
 
     override fun setOnClickListener(l: OnClickListener?) {

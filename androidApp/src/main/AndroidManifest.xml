@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,10 +10,14 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.OpenDay"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
         android:hardwareAccelerated="true">
         <activity
             android:name="ru.voenmeh.openday.android.main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

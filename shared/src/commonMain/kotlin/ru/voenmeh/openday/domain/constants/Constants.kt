@@ -6,6 +6,7 @@ object Constants {
         const val numbersOfFaculty = 7
         const val maxNumberQuest = 8
         const val maxEmsWordQuest = 64
+        const val maxMistakes = 2
     }
 
     object Strings {
@@ -19,6 +20,8 @@ object Constants {
         val incorrectQr: String = "QR-код недействителен"
         val scanQr: String = "Сканирование QR-код"
         val scanQrError: String = "Ошибка при сканировании QR-кода"
+        val repeatScanQr: String = "Вы уже открыли это достижение"
+
         object Achievement {
             val lockedTitle: String = "Карточка заблокирована!"
             val lockedDescription: String = "Для того чтобы разблокировать карточку, необходимо найти QR-код, отсканировать его и выполнить небольшое задание."

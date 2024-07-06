@@ -135,6 +135,15 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(this@MainActivity, value, Toast.LENGTH_SHORT).show()
         }
+
+        questViewModel.currentMistake.addObserver { value ->
+            // TODO: change to boolean
+            if (value == null) return@addObserver
+
+            if (value > Constants.Numbers.maxMistakes) {
+                currentQuest?.setHintVisibility(view = View.VISIBLE)
+            }
+        }
     }
 
     private fun createAchievementCard(achievement: Achievement): AchievementCard {

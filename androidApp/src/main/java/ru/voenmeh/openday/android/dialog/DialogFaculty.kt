@@ -59,15 +59,10 @@ class DialogFaculty(private val activity: Activity, achievement: Achievement, on
 
     private fun initializeButtons(achievement: Achievement, onClose: () -> Unit) {
         val close = findViewById<ImageView>(R.id.dialogFaculty_imageView_close)
-        val rootView = findViewById<LinearLayout>(R.id.dialogFaculty_linearLayout)
         val button = findViewById<Button>(R.id.dialogFaculty_button_continue)
 
         close.setOnClickListener {
             onClose()
-        }
-
-        rootView.setOnClickListener {
-            close.callOnClick()
         }
 
         button.setOnClickListener {

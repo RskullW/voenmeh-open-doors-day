@@ -27,14 +27,15 @@ actual class QrDecoderUseCase(private val activity: AppCompatActivity, actual va
     actual fun openCamera(onSuccess: (String) -> Unit) {
         this.onSuccess = onSuccess
 
-        val scanOption = ScanOptions()
+        val scanOption = ScanOptions().apply {
+            setDesiredBarcodeFormats(ScanOptions.QR_CODE)
+            setPrompt(Constants.Strings.scanQr)
+            setCameraId(0)
+            setBeepEnabled(false)
+            setBarcodeImageEnabled(true)
+            setOrientationLocked(false)
+        }
 
-        scanOption.setDesiredBarcodeFormats(ScanOptions.QR_CODE)
-        scanOption.setPrompt(Constants.Strings.scanQr)
-        scanOption.setCameraId(0)
-        scanOption.setBeepEnabled(false)
-        scanOption.setBarcodeImageEnabled(true)
-        scanOption.setOrientationLocked(false)
 
         barcodeLauncher.launch(scanOption)
     }

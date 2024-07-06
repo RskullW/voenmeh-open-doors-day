@@ -29,7 +29,7 @@ class DialogCorrectAnswer(private val activity: Activity, quest: Quest, onClose:
 
     private fun initializeTitle(quest: Quest) {
         val textView = findViewById<TextView>(R.id.correctAnswer_textView_faculty)
-        val text = "${quest.achievement?.faculty}"
+        val text = "${quest.achievement?.title}"
 
         textView.text = text
     }

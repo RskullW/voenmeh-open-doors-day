@@ -21,14 +21,38 @@ class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoder
     val toastMessage: LiveData<String?> = LiveData(null)
     val isStartQuest: LiveData<Boolean> = LiveData(false)
 
+    val currentMistake: LiveData<Int> = LiveData(0)
+
     var currentQuest: Quest? = null
         private set
 
-    public fun openQuest(quest: Quest) {
+    private suspend fun openQuest(quest: Quest) {
+        if (!isLocked(quest)) {
+            withContextMain {
+                toastMessage.update(value = Constants.Strings.repeatScanQr)
+            }
+
+            return
+        }
+
         currentQuest = quest
-        isStartQuest.update(true)
+
+        withContextMain {
+            currentMistake.update(0)
+            isStartQuest.update(true)
+        }
     }
 
+    private suspend fun isLocked(quest: Quest): Boolean {
+        val achievements = achievementRepository.fromDevice()
+        achievements.forEach { achievement ->
+            if (achievement.faculty == quest.achievement?.faculty) {
+                return false
+            }
+        }
+
+        return true
+    }
     public fun checkAnswer(answerUser: String) {
         updateStateScreen(StateScreen.LOADING)
 
@@ -46,12 +70,15 @@ class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoder
 
             if (answerFormatted != answerUserFormatted) {
                 withContextMain {
+                    val mistake = currentMistake.getValue() ?: 0
+                    currentMistake.update(mistake+1)
                     error.update(Constants.Strings.incorrectAnswer)
                 }
             } else {
                 saveAchievements(achievement = currentQuest!!.achievement!!)
 
                 withContextMain {
+                    currentMistake.update(0)
                     isCorrectAnswer.update(value = true)
                 }
             }
@@ -82,22 +109,28 @@ class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoder
 
         qrDecoderUseCase.openCamera { value ->
             val result = firebaseDB.post(value)
+            CoroutineScope(Dispatchers.IO).launch {
+                if (result.isEmpty()) {
+                    withContextMain {
+                        toastMessage.update(Constants.Strings.incorrectQr)
+                    }
+                    return@launch
+                }
+                val quest = result.first()
 
-            if (result.isEmpty()) {
-                toastMessage.update(Constants.Strings.incorrectQr)
-                return@openCamera
+                val faculty = getFaculty(quest.id ?: "")
+
+                if (faculty == null) {
+                    withContextMain {
+                        toastMessage.update(Constants.Strings.incorrectQr)
+                    }
+
+                    return@launch
+                }
+
+                quest.achievement?.faculty = faculty
+                openQuest(quest)
             }
-            val quest = result.first()
-
-            val faculty = getFaculty(quest.id ?: "")
-
-            if (faculty == null) {
-                toastMessage.update(Constants.Strings.incorrectQr)
-                return@openCamera
-            }
-
-            quest.achievement?.faculty = faculty
-            openQuest(quest)
         }
     }
 

@@ -42,11 +42,9 @@ class DialogError(context: Context, onClose: () -> Unit = {}): LinearLayout(cont
     }
 }
 
-fun showDialogError(activity: Activity, title: String = Constants.Strings.titleError, description: String, close: String = Constants.Strings.Common.close, onAction: () -> Unit = {}) {
-        val dialog = Dialog(activity, R.style.BottomSheetDialogTransparent)
-
-        val dialogError = DialogError(activity) {
-            dialog.dismiss()
+fun Dialog.showDialogError(activity: Activity, title: String = Constants.Strings.titleError, description: String, close: String = Constants.Strings.Common.close, onAction: () -> Unit = {}) {
+     val dialogError = DialogError(activity) {
+            dismiss()
             onAction()
         }
 
@@ -54,6 +52,6 @@ fun showDialogError(activity: Activity, title: String = Constants.Strings.titleE
         dialogError.updateDescription(text = description)
         dialogError.updateTextButton(text = close)
 
-        dialog.setContentView(dialogError)
-        dialog.show()
+        setContentView(dialogError)
+        show()
 }

@@ -5,4 +5,12 @@
     <string name="quest">Задание</string>
     <string name="quest_description">Ваша задача, найти в каждой аудитории факультета QR-код, отсканировав его с помощью приложения и решить небольшое задание. При успешном прохождении вы получаете жетоны, которые отображаются выше. Также, нажав на жетон вы можете узнать небольшую информацию о факультете. Удачи в поисках!</string>
     <string name="learnMore">Изучить подробнее</string>
+    <string name="by">от</string>
+    <string name="checkAnswer">Проверить ответ</string>
+    <string name="hint"><u>Подсказка</u></string>
+    <string name="inputField">Поле для ввода</string>
+    <string name="incorrectAnswer">Неправильный ответ :( Попробуй ещё раз!</string>
+    <string name="achievementUnlocked">Жетон разблокирован!</string>
+    <string name="Faculty">Факультет</string>
+
 </resources>

@@ -2,7 +2,6 @@ package ru.voenmeh.openday.android.dialog
 
 import android.app.Activity
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -14,7 +13,6 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 import ru.voenmeh.openday.android.R
 import ru.voenmeh.openday.domain.model.Achievement
-import ru.voenmeh.openday.domain.utils.Log
 
 class DialogFaculty(private val activity: Activity, achievement: Achievement, onClose: () -> Unit = {}): LinearLayout(activity) {
     init {
@@ -43,7 +41,7 @@ class DialogFaculty(private val activity: Activity, achievement: Achievement, on
 
         var text: String = ""
 
-        achievement.specializations.forEach { value ->
+        achievement.departments.forEach { value ->
             text+="$value\n"
         }
 
@@ -54,7 +52,6 @@ class DialogFaculty(private val activity: Activity, achievement: Achievement, on
         val imageView = findViewById<ShapeableImageView>(R.id.dialogFaculty_shapeableImageView)
         val url = achievement.urlImage
 
-        Log("URLIMAGE", url)
         Picasso.get()
             .load(url).placeholder(R.drawable.placeholder_image)
             .into(imageView)
@@ -86,13 +83,11 @@ class DialogFaculty(private val activity: Activity, achievement: Achievement, on
     }
 }
 
-fun showDialogFaculty(activity: Activity, achievement: Achievement) {
-        val dialog = Dialog(activity, R.style.BottomSheetDialogTransparent)
+fun Dialog.showDialogFaculty(activity: Activity, achievement: Achievement) {
+    val dialogFaculty = DialogFaculty(activity = activity, achievement = achievement) {
+        dismiss()
+    }
 
-        val dialogError = DialogFaculty(activity = activity, achievement = achievement) {
-            dialog.dismiss()
-        }
-
-        dialog.setContentView(dialogError)
-        dialog.show()
+    setContentView(dialogFaculty)
+    show()
 }

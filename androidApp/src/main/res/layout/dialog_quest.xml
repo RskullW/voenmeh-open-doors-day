@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_white_dialog"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/dialogQuest_linearLayout_stateDefault"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dialogQuest_imageView_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/image_selector"
+                app:srcCompat="@drawable/ic_close" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quest"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_32sp" />
+
+            <TextView
+                android:id="@+id/dialogQuest_textView_faculty"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingMultiplier="1.1"
+                android:text="@string/by"
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_28sp" />
+
+            <TextView
+                android:id="@+id/dialogQuest_textView_quest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:alpha="0.5"
+                android:lineSpacingMultiplier="1.1"
+                android:text="Рассчитайте скорость, необходимую для вывода спутника на низкую околоземную орбиту на высоте 300 км над уровнем моря. Радиус Земли составляет 6371 км."
+                android:textColor="@color/black"
+                android:justificationMode="inter_word"
+                android:textSize="@dimen/size_16sp"
+                android:fontFamily="@font/open_sans"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dialogQuest_textView_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint"
+                    android:textColor="@color/primaryColor"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textSize="@dimen/size_16sp"
+                    android:clickable="true"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/dialogQuest_textView_hintMessage"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Используйте формулу"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/open_sans_light"
+                    android:textSize="@dimen/size_16sp"
+                    />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dialogQuest_textInputLayout"
+                style="@style/CustomTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/inputField"
+                android:color="@color/primaryColor"
+                app:boxStrokeColor="@color/primaryColor"
+                app:boxStrokeWidth="1dp"
+                app:errorEnabled="false"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeErrorColor="@color/errorColor"
+                app:errorTextColor="@color/errorColor"
+                app:errorIconTint="@null"
+                app:errorIconDrawable="@null"
+                app:hintTextColor="@color/primaryColor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dialogQuest_textInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:inputType="text"
+                    android:fontFamily="@font/open_sans"
+                    android:textColor="@drawable/input_text_color"
+                    android:textCursorDrawable="@drawable/cursor_shape"
+                    android:textSize="@dimen/size_18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/dialogQuest_button_check"
+                    style="?android:attr/borderlessButtonStyle"
+                    app:backgroundTint="@null"
+                    android:button="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checkAnswer"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/button_text_color_selector"
+                    android:background="@drawable/button_selector"
+                    android:textSize="@dimen/size_18sp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/open_sans_semibold"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dialogQuest_linearLayout_stateLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:elevation="10dp"
+                android:indeterminateTint="@color/primaryColor"
+                android:scaleX="0.8"
+                android:scaleY="0.8" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

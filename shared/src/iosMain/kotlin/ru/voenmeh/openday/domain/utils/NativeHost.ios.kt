@@ -5,7 +5,7 @@ actual object NativeHost {
         TODO("Not yet implemented")
     }
 
-    actual fun getUrl(): String {
+    actual fun getUids(): Map<Int, String> {
         TODO("Not yet implemented")
     }
 }

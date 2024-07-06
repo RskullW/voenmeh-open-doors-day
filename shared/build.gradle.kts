@@ -1,8 +1,11 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.androidLibrary)
+    id("com.google.gms.google-services")
 }
 
 kotlin {
@@ -39,6 +42,9 @@ kotlin {
             implementation(libs.androidx.activity)
             implementation(libs.io.ktor.okhttp)
             implementation(libs.io.koin.android)
+            implementation(libs.com.journeyapps.zxing.android.embedded)
+            implementation(libs.com.google.android.gms.play.services.location)
+            implementation(libs.firebase.firestore)
         }
 
         commonMain.dependencies {
@@ -61,14 +67,29 @@ kotlin {
     }
 }
 
+val facultyA: String = gradleLocalProperties(rootDir).getProperty("facultyA")
+val facultyE: String = gradleLocalProperties(rootDir).getProperty("facultyE")
+val facultyI: String = gradleLocalProperties(rootDir).getProperty("facultyI")
+val facultyO: String = gradleLocalProperties(rootDir).getProperty("facultyO")
+val facultyR: String = gradleLocalProperties(rootDir).getProperty("facultyR")
+val facultySPO: String = gradleLocalProperties(rootDir).getProperty("facultySPO")
+val facultyVUC: String = gradleLocalProperties(rootDir).getProperty("facultyVUC")
+
 android {
     namespace = "ru.voenmeh.openday"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
-        buildConfigField("int", "BRAND_ID", "1")
         buildConfigField("int", "VERSION_CODE", "1")
         buildConfigField("String", "VERSION_NAME", "\"1.0\"")
+        buildConfigField("String", "FACULTY_A", facultyA)
+        buildConfigField("String", "FACULTY_E", facultyE)
+        buildConfigField("String", "FACULTY_I", facultyI)
+        buildConfigField("String", "FACULTY_O", facultyO)
+        buildConfigField("String", "FACULTY_R", facultyR)
+        buildConfigField("String", "FACULTY_SPO", facultySPO)
+        buildConfigField("String", "FACULTY_VUC", facultyVUC)
+
         externalNativeBuild {
             ndkBuild {
                 cppFlags += ""
@@ -88,7 +109,4 @@ android {
     buildFeatures {
         buildConfig = true
     }
-}
-dependencies {
-    implementation(libs.com.google.android.gms.play.services.location)
 }

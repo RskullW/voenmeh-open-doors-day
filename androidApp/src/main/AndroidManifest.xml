@@ -8,7 +8,8 @@
         android:name=".Application"
         android:allowBackup="false"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OpenDay">
+        android:theme="@style/Theme.OpenDay"
+        android:hardwareAccelerated="true">
         <activity
             android:name="ru.voenmeh.openday.android.main.MainActivity"
             android:exported="true">

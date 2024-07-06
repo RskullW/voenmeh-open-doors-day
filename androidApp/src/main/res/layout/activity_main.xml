@@ -126,16 +126,18 @@
                         android:text="@string/quest_description"
                         android:textAlignment="textStart"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/size_20sp" />
+                        android:textSize="@dimen/size_20sp"
+                        />
+
                 </LinearLayout>
 
             </ScrollView>
 
             <Button
+                android:id="@+id/main_button_continue"
                 style="?android:attr/borderlessButtonStyle"
                 app:backgroundTint="@null"
                 android:button="@null"
-                android:id="@+id/main_button_continue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Отсканировать QR код"
@@ -149,6 +151,7 @@
                 android:paddingBottom="12dp"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/open_sans_semibold"
                 />
         </FrameLayout>
 

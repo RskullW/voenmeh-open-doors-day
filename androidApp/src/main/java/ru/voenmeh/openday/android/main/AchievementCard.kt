@@ -21,7 +21,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
 
         val resource = when(achievement.faculty) {
             Faculty.A -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_a_unlocked
                 }
 
@@ -31,7 +31,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
 
             Faculty.E -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_e_unlocked
                 }
 
@@ -41,7 +41,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
 
             Faculty.I -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_i_unlocked
                 }
 
@@ -51,7 +51,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
 
             Faculty.O -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_o_unlocked
                 }
 
@@ -61,7 +61,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
 
             Faculty.R -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_r_unlocked
                 }
 
@@ -71,7 +71,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
 
             Faculty.VUC -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_vuc_unlocked
                 }
 
@@ -81,7 +81,7 @@ class AchievementCard(private val achievement: Achievement, context: Context): F
             }
 
             Faculty.SPO -> {
-                if (achievement.isEnabled) {
+                if (achievement.isEnabled == true) {
                     R.drawable.ic_spo_unlocked
                 }
 

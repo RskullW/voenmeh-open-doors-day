@@ -33,7 +33,7 @@ actual val factoryModule: Module = module {
 }
 
 actual val viewModelModule: Module = module {
-    viewModel { MainViewModel(achievementRepository = get(), configParams = get()) }
+    viewModel { MainViewModel(firebaseDB = get(), achievementRepository = get(), configParams = get()) }
     viewModel { (activity: AppCompatActivity) ->
         QuestViewModel(firebaseDB = get(), qrDecoderUseCase = get { parametersOf(activity) }, achievementRepository = get())
     }

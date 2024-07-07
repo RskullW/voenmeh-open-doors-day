@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,8 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeViewModel() {
         val background = findViewById<LinearLayout>(R.id.main_linearLayout_achievements)
-        val stateDefault = findViewById<FrameLayout>(R.id.main_frameLayout_stateDefault)
         val stateLoading = findViewById<LinearLayout>(R.id.main_linearLayout_stateLoading)
+        val stateDefault = findViewById<FrameLayout>(R.id.main_frameLayout_stateDefault)
+        val achievementTitle = findViewById<TextView>(R.id.main_textView_achievement)
 
         viewModel.stateScreen.addObserver { value ->
             if (value == null) return@addObserver
@@ -76,6 +78,12 @@ class MainActivity : AppCompatActivity() {
                 val achievementCard = createAchievementCard(achievement = achievement)
                 background.addView(achievementCard)
             }
+        }
+
+        viewModel.achievementsTitle.addObserver { value ->
+            if (value == null) return@addObserver
+
+            achievementTitle.text = value.ifEmpty { Constants.Strings.Achievement.achievemet }
         }
     }
 

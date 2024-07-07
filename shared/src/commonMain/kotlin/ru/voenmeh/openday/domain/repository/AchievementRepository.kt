@@ -1,8 +1,8 @@
 package ru.voenmeh.openday.domain.repository
 
-import ru.voenmeh.openday.domain.model.Achievement
+import ru.voenmeh.openday.domain.model.Quest
 
 interface AchievementRepository {
-    suspend fun fromDevice(): List<Achievement>
-    suspend fun saveToDevice(achievements: List<Achievement>)
+    suspend fun fromDevice(): List<String>
+    suspend fun saveToDevice(quests: List<String>)
 }

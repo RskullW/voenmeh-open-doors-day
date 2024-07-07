@@ -23,6 +23,7 @@ object Constants {
         val repeatScanQr: String = "Вы уже открыли это достижение"
 
         object Achievement {
+            val achievemet: String = "Достижения"
             val lockedTitle: String = "Карточка заблокирована!"
             val lockedDescription: String = "Для того чтобы разблокировать карточку, необходимо найти QR-код, отсканировать его и выполнить небольшое задание."
             val achievementUnlocked: String = "Жетон разблокирован!"

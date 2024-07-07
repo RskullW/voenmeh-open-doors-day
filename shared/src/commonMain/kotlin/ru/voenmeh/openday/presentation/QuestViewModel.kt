@@ -12,7 +12,6 @@ import ru.voenmeh.openday.domain.model.Quest
 import ru.voenmeh.openday.domain.repository.AchievementRepository
 import ru.voenmeh.openday.domain.repository.FirebaseDB
 import ru.voenmeh.openday.domain.usecase.QrDecoderUseCase
-import ru.voenmeh.openday.domain.utils.Log
 import ru.voenmeh.openday.domain.utils.NativeHost
 
 class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoderUseCase, val achievementRepository: AchievementRepository): ViewModel() {
@@ -44,9 +43,9 @@ class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoder
     }
 
     private suspend fun isLocked(quest: Quest): Boolean {
-        val achievements = achievementRepository.fromDevice()
-        achievements.forEach { achievement ->
-            if (achievement.faculty == quest.achievement?.faculty) {
+        val questUids = achievementRepository.fromDevice()
+        questUids.forEach { uid ->
+            if (uid == quest.id) {
                 return false
             }
         }
@@ -75,7 +74,7 @@ class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoder
                     error.update(Constants.Strings.incorrectAnswer)
                 }
             } else {
-                saveAchievements(achievement = currentQuest!!.achievement!!)
+                saveUid(quest = currentQuest!!)
 
                 withContextMain {
                     currentMistake.update(0)
@@ -89,19 +88,19 @@ class QuestViewModel(val firebaseDB: FirebaseDB, val qrDecoderUseCase: QrDecoder
         }
     }
 
-    public suspend fun saveAchievements(achievement: Achievement) {
-        val achievements = achievementRepository.fromDevice().toMutableList()
-        achievement.isEnabled = true
+    public suspend fun saveUid(quest: Quest) {
+        val quests = achievementRepository.fromDevice().toMutableList()
+        quest.achievement?.isEnabled = true
 
-        val foundedAchievement = achievements.find { it.faculty == achievement.faculty }
+        val foundedAchievement = quests.find { it == quest.id }
 
         if (foundedAchievement != null) {
-            achievements.remove(foundedAchievement)
+            quests.remove(foundedAchievement)
         }
 
-        achievements.add(achievement)
+        quests.add(quest.id ?: "")
 
-        achievementRepository.saveToDevice(achievements)
+        achievementRepository.saveToDevice(quests)
     }
 
     public fun openQR() {
